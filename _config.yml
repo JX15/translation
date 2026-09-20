@@ -1,0 +1,106 @@
+# Site Information
+title: Translation
+description: "JX15 的翻译集：把值得读的英文文章翻成中文"
+url: https://jx15.github.io
+# 项目站点：部署在 https://jx15.github.io/translation ，本地 serve 时也会自动带上前缀
+baseurl: /translation
+repo: JX15/translation
+lang: zh-CN
+encoding: utf-8
+timezone: Asia/Shanghai
+
+# Author Information (for SEO and AI crawlers)
+author:
+  name: JX15
+  email: emailjx@163.com
+  url: https://jx15.github.io
+  github: JX15
+
+# Social Media and External URLs
+github: JX15
+menu:
+  - title: "Blog"
+    url: "https://jx15.github.io"
+  - title: "GitHub"
+    url: "https://github.com/JX15/translation"
+  - title: "About"
+    url: "/about.html"
+
+# Build Settings
+paginate: 10
+post_ext: md
+page_ext: md
+post_layout: post
+page_layout: page
+titlecase: true
+future: true
+highlighter: rouge
+markdown: kramdown
+permalink: /:year-:month-:day/:title.html
+sass:
+  sass_dir: _sass
+  style: compressed
+
+webrick:
+  headers:
+    "Access-Control-Allow-Origin": "*"
+    "Access-Control-Allow-Methods": "GET, OPTIONS"
+    "Access-Control-Allow-Headers": "Content-Type, X-Requested-With"
+
+collections:
+  posts:
+    output: true
+    permalink: /:year-:month-:day/:title.html
+
+include: [".htaccess", "robots.txt"]
+exclude:
+  [
+    "Gemfile",
+    "Gemfile.lock",
+    "README.md",
+    "License",
+    "node_modules",
+  ]
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-pdf-embed
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Sitemap Settings
+defaults:
+  - scope:
+      path: "images/**/*"
+    values:
+      sitemap: false
+  - scope:
+      path: "js/**/*"
+    values:
+      sitemap: false
+  - scope:
+      path: "css/**/*"
+    values:
+      sitemap: false
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      sitemap:
+        priority: 0.8
+        changefreq: weekly
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      sitemap:
+        priority: 0.6
+        changefreq: monthly
+
+# Custom Site Settings
+# 评论（giscus）默认关闭；以后想开：在个人仓库装好 giscus 应用后设 comments: true 并更新 _includes/giscus.html 里的 repo id
+comments: false
+showBuyCoffee: false
+assetUrl: /images/
+defaultImage: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==

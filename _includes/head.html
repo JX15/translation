@@ -54,8 +54,8 @@
   {% endif %}
 
   <!-- Canonical URL -->
-  {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url |
-  remove: 'index.html' | strip_slash }}{% endif %}{% endcapture %}
+  {% capture canonical %}{% if site.permalink contains '.html' %}{{ page.url | absolute_url }}{% else %}{{ page.url |
+  remove: 'index.html' | strip_slash | absolute_url }}{% endif %}{% endcapture %}
   <link rel="canonical" href="{{ canonical }}">
 
   <!-- Hreflang for multilingual content -->

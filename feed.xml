@@ -10,7 +10,7 @@ layout: none
     <image>
       <url>https://avatars.githubusercontent.com/u/67221128</url>
     </image>
-    <link>{{ site.url }}</link>
+    <link>{{ '/' | absolute_url }}</link>
     <atom:link href="{{ '/feed.xml' | absolute_url }}" rel="self" type="application/rss+xml" />
 		{% for post in site.posts limit:10 %}
     {% assign is_hidden = post.hidden | default: post.hide %}
